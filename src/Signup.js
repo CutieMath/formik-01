@@ -37,8 +37,9 @@ const Signup = () => {
           placeholder="First Name"
           onChange={formik.handleChange}
           value={formik.values.firstName} // two-way binding
+          onBlur={formik.handleBlur} // check if the field is touched
         />
-        {formik.errors.firstName ? (
+        {formik.touched.firstName && formik.errors.firstName ? (
           <p className="error">{formik.errors.firstName}</p>
         ) : null}
         <input
@@ -48,8 +49,9 @@ const Signup = () => {
           placeholder="Last Name"
           onChange={formik.handleChange}
           value={formik.values.lastName} // two-way binding
+          onBlur={formik.handleBlur} // check if the field is touched
         />
-        {formik.errors.lastName ? (
+        {formik.touched.lastName && formik.errors.lastName ? (
           <p className="error">{formik.errors.lastName}</p>
         ) : null}
         <input
@@ -59,8 +61,9 @@ const Signup = () => {
           placeholder="Email"
           onChange={formik.handleChange}
           value={formik.values.email} // two-way binding
+          onBlur={formik.handleBlur} // check if the field is touched
         />
-        {formik.errors.email ? (
+        {formik.touched.email && formik.errors.email ? (
           <p className="error">{formik.errors.email}</p>
         ) : null}
       </div>
