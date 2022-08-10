@@ -1,10 +1,20 @@
 import React, { useState } from "react";
+import { useFormik } from "formik";
+import "./Signup.css";
 
 const Signup = () => {
   // 1. Set up the state for data
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+    },
+  });
 
   // Submit the value to the server
   const handleSubmit = (e) => {
@@ -21,24 +31,24 @@ const Signup = () => {
           name="firstName"
           type="text"
           placeholder="First Name"
-          onChange={(e) => setFirstName(e.target.value)}
-          value={firstName} // two-way binding
+          onChange={formik.handleChange}
+          value={formik.values.firstName} // two-way binding
         />
         <input
           id="lastName"
           name="lastName"
           type="text"
           placeholder="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
-          value={lastName} // two-way binding
+          onChange={formik.handleChange}
+          value={formik.values.lastName} // two-way binding
         />
         <input
-          id="phoneNumber"
-          name="phoneNumber"
+          id="email"
+          name="email"
           type="text"
-          placeholder="Phone Number"
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          value={phoneNumber} // two-way binding
+          placeholder="Email"
+          onChange={formik.handleChange}
+          value={formik.values.email} // two-way binding
         />
       </div>
       <button type="submit">Submit x</button>
