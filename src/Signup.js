@@ -10,16 +10,15 @@ const Signup = () => {
       lastName: "",
       email: "",
     },
+    // 2. Submit the value to the server
+    onSubmit: (values) => {
+      console.log(values);
+    },
   });
 
-  // Submit the value to the server
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  // 2. Render the state in UI
+  // 3. Render the state in UI
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={formik.handleSubmit}>
       <div className="input-container">
         <input
           id="firstName"
