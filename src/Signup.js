@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormik } from "formik";
 import "./Signup.css";
 
 const Signup = () => {
   // 1. Set up the state for data
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -19,7 +15,6 @@ const Signup = () => {
   // Submit the value to the server
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(firstName, lastName, phoneNumber);
   };
 
   // 2. Render the state in UI
